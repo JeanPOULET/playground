@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use '@cds/core/global.min.css';
+@use '@cds/core/styles/theme.dark.min.css';
+@use '@clr/ui/clr-ui.min.css';
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+$my-theme: mat.m2-define-light-theme(
+        $primary: mat.$azure-palette,
+        $accent: mat.$azure-palette,
+        $warn: mat.$azure-palette
+);
+
+@include mat.core();
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 30px;
+  height: 100%;
+
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
