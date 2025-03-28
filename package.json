@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run date-omg:storybook",
-    "build-storybook": "ng run date-omg:build-storybook"
+    "build-storybook": "ng run date-omg:build-storybook",
+    "test-storybook": "test-storybook --url http://localhost:6006",
+    "chromatic": "npx chromatic --project-token=chpt_f72b3cd1a4e49a5"
   },
   "private": true,
   "dependencies": {
@@ -25,9 +27,11 @@
     "@clr/angular": "^17.8.1",
     "@clr/ui": "^17.8.1",
     "@nebular/theme": "^15.0.0",
+    "@primeng/themes": "^19.0.10",
     "dayjs": "^1.11.13",
     "dayjs-plugin-utc": "^0.1.2",
     "lodash-es": "^4.17.21",
+    "primeng": "^19.0.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -38,6 +42,7 @@
     "@angular/compiler-cli": "^19.2.3",
     "@chromatic-com/storybook": "^3.2.6",
     "@compodoc/compodoc": "^1.1.26",
+    "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-docs": "^8.6.10",
     "@storybook/addon-essentials": "^8.6.10",
     "@storybook/addon-interactions": "^8.6.10",
@@ -47,12 +52,14 @@
     "@storybook/test": "^8.6.10",
     "@types/jasmine": "~5.1.0",
     "@types/node": "~22.13.1",
-    "jasmine-core": "~5.5.0",
+    "chromatic": "^11.27.0",
+    "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "playwright": "^1.51.1",
     "storybook": "^8.6.10",
     "typescript": "~5.7.2"
   }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterOutlet} from '@angular/router';
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
@@ -17,8 +17,10 @@ import {CommonModule} from '@angular/common';
 import dayjs from 'dayjs';
 import {ClarityTrialComponent} from './comps/clarity-trial/clarity-trial.component';
 import {ComboboxComponent} from './comps/combobox/combobox.component';
+import {PrimeInputComponent} from './comps/primeng/prime-input/prime-input.component';
+import {Button} from 'primeng/button';
 
-const format:MatDateFormats = {
+const format: MatDateFormats = {
   parse: {
     dateInput: "DD/MM/YYYY",
     timeInput: "DD/MM/YYYY HH:mm:ss"
@@ -34,8 +36,8 @@ const format:MatDateFormats = {
   }
 }
 
-const validate = (control ) =>{
-  if(dayjs().isBefore(dayjs(control.value)) ){
+const validate = (control) => {
+  if (dayjs().isBefore(dayjs(control.value))) {
     return {err: true}
   }
 
@@ -49,20 +51,23 @@ const validate = (control ) =>{
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    RouterOutlet, MatDatepickerModule,MatDatepicker, MatFormFieldModule, MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
     ClarityTrialComponent,
-    ComboboxComponent
+    ComboboxComponent, PrimeInputComponent, Button
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers:[
-    {provide: MAT_DATE_FORMATS, useValue: format,
+  providers: [
+    {
+      provide: MAT_DATE_FORMATS, useValue: format,
     }
   ]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'date-omg';
-    control: FormControl<Date | null>;
+  control: FormControl<Date | null>;
 
   constructor() {
 
@@ -77,6 +82,8 @@ export class AppComponent implements OnInit{
   }
 
 
-
-
+  toggleTheme() {
+    const element = document.querySelector('html');
+    element.classList.toggle('my-app-dark');
+  }
 }

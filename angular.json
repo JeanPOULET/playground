@@ -78,6 +78,9 @@
               "buildTarget": "date-omg:build:development"
             }
           },
+          "options": {
+            "port": 4212
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

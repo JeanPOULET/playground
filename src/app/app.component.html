@@ -1,7 +1,9 @@
 <div>
-
-  <h2>Fuck off</h2>
+  <p-button (onClick)="toggleTheme()"
+            [label]="'Theme toggle'"
+  />
 
   <clarity-trial [formControl]="control"/>
   <combobox/>
+  <app-prime-input/>
 </div>
