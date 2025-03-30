@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-c99c1ef606bdd2208bb35b367cf315ebbbf0a5b2f145086999b1fdba1a5c7796b45e9654186128955c14dc5bd7870b7f2bd3a4a068e33d2660fc8d60123af272",
+            "id": "component-AppComponent-255ff0d7b9e2bb2a7fe52fb6bee27be3375473084827d6d5a4953d17cd5832126173d9ccfb9c704cf5ddecee885771af7c47486f956b9faf80bb77a4e08edff1",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -39,7 +39,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 70
+                    "line": 72
                 },
                 {
                     "name": "title",
@@ -50,7 +50,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 69
+                    "line": 71
                 }
             ],
             "methodsClass": [
@@ -60,7 +60,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -70,7 +70,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 85,
+                    "line": 87,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -123,12 +123,16 @@
                 },
                 {
                     "name": "Button"
+                },
+                {
+                    "name": "MultiSelectComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, OnInit} from '@angular/core';\r\nimport {RouterOutlet} from '@angular/router';\r\nimport {\r\n  DateAdapter,\r\n  MAT_DATE_FORMATS,\r\n  MatDateFormats, MatNativeDateModule,\r\n  NativeDateAdapter,\r\n  provideNativeDateAdapter\r\n} from '@angular/material/core';\r\nimport {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';\r\nimport {MAT_DATEPICKER_VALIDATORS, MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';\r\nimport {MatFormField, MatFormFieldModule} from '@angular/material/form-field';\r\nimport {MatInputModule} from '@angular/material/input';\r\nimport {provideAnimationsAsync} from '@angular/platform-browser/animations/async';\r\nimport {BrowserModule} from '@angular/platform-browser';\r\nimport {CommonModule} from '@angular/common';\r\nimport dayjs from 'dayjs';\r\nimport {ClarityTrialComponent} from './comps/clarity-trial/clarity-trial.component';\r\nimport {ComboboxComponent} from './comps/combobox/combobox.component';\r\nimport {PrimeInputComponent} from './comps/primeng/prime-input/prime-input.component';\r\nimport {Button} from 'primeng/button';\r\n\r\nconst format: MatDateFormats = {\r\n  parse: {\r\n    dateInput: \"DD/MM/YYYY\",\r\n    timeInput: \"DD/MM/YYYY HH:mm:ss\"\r\n  },\r\n  display: {\r\n    dateInput: \"DD/MM/YYYY\",\r\n    monthLabel: \"MM\",\r\n    monthYearLabel: \"YYYY\",\r\n    timeInput: \"DD/MM/YYYY HH:mm:ss\",\r\n    dateA11yLabel: \"\",\r\n    timeOptionLabel: \"\",\r\n    monthYearA11yLabel: \"\"\r\n  }\r\n}\r\n\r\nconst validate = (control) => {\r\n  if (dayjs().isBefore(dayjs(control.value))) {\r\n    return {err: true}\r\n  }\r\n\r\n  return null;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    ReactiveFormsModule,\r\n    MatNativeDateModule,\r\n    MatDatepickerModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    ClarityTrialComponent,\r\n    ComboboxComponent, PrimeInputComponent, Button\r\n  ],\r\n  templateUrl: './app.component.html',\r\n  styleUrl: './app.component.scss',\r\n  providers: [\r\n    {\r\n      provide: MAT_DATE_FORMATS, useValue: format,\r\n    }\r\n  ]\r\n})\r\nexport class AppComponent implements OnInit {\r\n  title = 'date-omg';\r\n  control: FormControl<Date | null>;\r\n\r\n  constructor() {\r\n\r\n    this.control = new FormControl(new Date(\"02/02/2024 00:00:00\"), [validate]);\r\n  }\r\n\r\n  ngOnInit() {\r\n    // this.control.setValue(new Date(\"02/02/2024 00:00:00\"))\r\n    this.control.valueChanges.subscribe(val => {\r\n      console.log(val);\r\n    })\r\n  }\r\n\r\n\r\n  toggleTheme() {\r\n    const element = document.querySelector('html');\r\n    element.classList.toggle('my-app-dark');\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, OnInit} from '@angular/core';\r\nimport {RouterOutlet} from '@angular/router';\r\nimport {\r\n  DateAdapter,\r\n  MAT_DATE_FORMATS,\r\n  MatDateFormats, MatNativeDateModule,\r\n  NativeDateAdapter,\r\n  provideNativeDateAdapter\r\n} from '@angular/material/core';\r\nimport {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';\r\nimport {MAT_DATEPICKER_VALIDATORS, MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';\r\nimport {MatFormField, MatFormFieldModule} from '@angular/material/form-field';\r\nimport {MatInputModule} from '@angular/material/input';\r\nimport {provideAnimationsAsync} from '@angular/platform-browser/animations/async';\r\nimport {BrowserModule} from '@angular/platform-browser';\r\nimport {CommonModule} from '@angular/common';\r\nimport dayjs from 'dayjs';\r\nimport {ClarityTrialComponent} from './comps/clarity-trial/clarity-trial.component';\r\nimport {ComboboxComponent} from './comps/combobox/combobox.component';\r\nimport {PrimeInputComponent} from './comps/primeng/prime-input/prime-input.component';\r\nimport {Button} from 'primeng/button';\r\nimport {MultiSelectComponent} from 'gb-lib';\r\n\r\nconst format: MatDateFormats = {\r\n  parse: {\r\n    dateInput: \"DD/MM/YYYY\",\r\n    timeInput: \"DD/MM/YYYY HH:mm:ss\"\r\n  },\r\n  display: {\r\n    dateInput: \"DD/MM/YYYY\",\r\n    monthLabel: \"MM\",\r\n    monthYearLabel: \"YYYY\",\r\n    timeInput: \"DD/MM/YYYY HH:mm:ss\",\r\n    dateA11yLabel: \"\",\r\n    timeOptionLabel: \"\",\r\n    monthYearA11yLabel: \"\"\r\n  }\r\n}\r\n\r\nconst validate = (control) => {\r\n  if (dayjs().isBefore(dayjs(control.value))) {\r\n    return {err: true}\r\n  }\r\n\r\n  return null;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    ReactiveFormsModule,\r\n    MatNativeDateModule,\r\n    MatDatepickerModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    ClarityTrialComponent,\r\n    ComboboxComponent, PrimeInputComponent, Button,\r\n    MultiSelectComponent\r\n  ],\r\n  templateUrl: './app.component.html',\r\n  styleUrl: './app.component.scss',\r\n  providers: [\r\n    {\r\n      provide: MAT_DATE_FORMATS, useValue: format,\r\n    }\r\n  ]\r\n})\r\nexport class AppComponent implements OnInit {\r\n  title = 'date-omg';\r\n  control: FormControl<Date | null>;\r\n\r\n  constructor() {\r\n\r\n    this.control = new FormControl(new Date(\"02/02/2024 00:00:00\"), [validate]);\r\n  }\r\n\r\n  ngOnInit() {\r\n    // this.control.setValue(new Date(\"02/02/2024 00:00:00\"))\r\n    this.control.valueChanges.subscribe(val => {\r\n      console.log(val);\r\n    })\r\n  }\r\n\r\n\r\n  toggleTheme() {\r\n    const element = document.querySelector('html');\r\n    element.classList.toggle('my-app-dark');\r\n  }\r\n}\r\n",
             "styleUrl": "./app.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -139,13 +143,13 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 70
+                "line": 72
             },
             "extends": [],
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div>\r\n  <p-button (onClick)=\"toggleTheme()\"\r\n            [label]=\"'Theme toggle'\"\r\n  />\r\n\r\n  <clarity-trial [formControl]=\"control\"/>\r\n  <combobox/>\r\n  <app-prime-input/>\r\n</div>\r\n"
+            "templateData": "<div>\r\n  <p-button (onClick)=\"toggleTheme()\"\r\n            [label]=\"'Theme toggle'\"\r\n  />\r\n\r\n  <clarity-trial [formControl]=\"control\"/>\r\n  <combobox/>\r\n  <app-prime-input/>\r\n  <lib-multi-select/>\r\n</div>\r\n"
         },
         {
             "name": "ClarityTrialComponent",

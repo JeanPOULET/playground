@@ -65,6 +65,12 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "test": {
+              "optimization": {
+                "runtimeChunk": false,
+                "splitChunks": false
+              }
             }
           },
           "defaultConfiguration": "production"
