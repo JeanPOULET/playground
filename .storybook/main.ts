@@ -1,4 +1,12 @@
 import type { StorybookConfig } from '@storybook/angular';
+// import {AddonOptionsWebpack} from '@storybook/addon-coverage';
+import type { AddonOptionsVite } from '@storybook/addon-coverage';
+
+const coverageConfig: AddonOptionsVite = {
+  istanbul: {
+    include: ['**/stories/**']
+  },
+};
 
 const config: StorybookConfig = {
   "stories": [
@@ -10,7 +18,11 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
-    "@storybook/addon-coverage"
+    {
+      name: "@storybook/addon-coverage",
+      options: coverageConfig
+    },
+
   ],
   "framework": {
     "name": "@storybook/angular",

@@ -1,59 +1,60 @@
-# DateOmg
+# Storybook
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Install pour la CI
+- npx playwright install
+- npx playwright install-deps chromium
+- npx playwright install --with-deps --only-shell | Only headless chrome
 
-## Development server
 
-To start a local development server, run:
 
-```bash
-ng serve
+
+https://storybook.js.org/docs/writing-tests/test-runner#set-up-ci-to-run-tests
+
+# 2. | Storybook
+To run the end to end tests, you will use this command (present in [package.json](package.json))</br>
+```npm run e2e```</br>
+We will use Storybook stories to do unitary test on components and pages </br>
+You should create a story within the folder of the component
+
+`Example : multi-input.component.ts -> multi-input.stories.ts`
+
+
+## 2.1 | Behavior/visual test
+You will write in your stories some scenaries of how your component will be used.</br>
+This is to ensure the behavior on the base input given.
+This will ensure also the visual aspect of the component.
+
+## 2.2 | Unit test
+You will write in your stories play functions.</br>
+A play function is a test case. It should describe a scenario and assert that all expected data is showed in the component.</br>
+This will represent an interaction from the user.</br>
+Example : 
+
 ```
+export const FilledForm: Story = {
+    play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+    await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
 
-## Code scaffolding
+    await userEvent.click(canvas.getByRole('button'));
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+    await expect(
+      canvas.getByTestId(
+        'email'
+      )
+    ).toHaveValue('email@provider.com')
+}};
 ```
+This example is to fill a login form, we put data in both fields some input. <br/>
+And we expect to have a value filled in the email as expected.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# 3. End-to-end tests
+To run the end to end tests, you will use this command (present in [package.json](package.json))</br>
+```npm run e2e```</br>
+For end-to-end tests we will use playright in this repository. <br/>
+This will simplify the visibility of endpoints used, pages etc..
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 3.1 | Playwright
+To write a scenario

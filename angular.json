@@ -137,6 +137,17 @@
             ],
             "outputDir": "storybook-static"
           }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "date-omg:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "date-omg:serve:production"
+            }
+          }
         }
       }
     }

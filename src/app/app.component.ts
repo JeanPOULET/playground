@@ -19,6 +19,7 @@ import {ClarityTrialComponent} from './comps/clarity-trial/clarity-trial.compone
 import {ComboboxComponent} from './comps/combobox/combobox.component';
 import {PrimeInputComponent} from './comps/primeng/prime-input/prime-input.component';
 import {Button} from 'primeng/button';
+import {MultiSelectComponent} from 'gb-lib';
 
 const format: MatDateFormats = {
   parse: {
@@ -55,7 +56,8 @@ const validate = (control) => {
     MatFormFieldModule,
     MatInputModule,
     ClarityTrialComponent,
-    ComboboxComponent, PrimeInputComponent, Button
+    ComboboxComponent, PrimeInputComponent, Button,
+    MultiSelectComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

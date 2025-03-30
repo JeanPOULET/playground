@@ -10,7 +10,9 @@
     "storybook": "ng run date-omg:storybook",
     "build-storybook": "ng run date-omg:build-storybook",
     "test-storybook": "test-storybook --url http://localhost:6006",
-    "chromatic": "npx chromatic --project-token=chpt_f72b3cd1a4e49a5"
+    "chromatic": "npx chromatic --project-token=chpt_f72b3cd1a4e49a5",
+    "end-to-end": "ng run karma",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -33,7 +35,9 @@
     "primeng": "^19.0.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.0",
+    "gb-lib": "file:../global-lib/rc/gb-lib-0.0.1.tgz",
+    "base-comp-lib": "file:../global-lib/rc/base-comp-lib-0.0.1.tgz"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.5",
@@ -41,6 +45,7 @@
     "@angular/compiler-cli": "^19.2.3",
     "@chromatic-com/storybook": "^3.2.6",
     "@compodoc/compodoc": "^1.1.26",
+    "@playwright/test": "^1.51.1",
     "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-docs": "^8.6.10",
     "@storybook/addon-essentials": "^8.6.10",
@@ -49,9 +54,12 @@
     "@storybook/angular": "^8.6.10",
     "@storybook/blocks": "^8.6.10",
     "@storybook/test": "^8.6.10",
+    "@storybook/test-runner": "^0.22.0",
     "@types/jasmine": "~5.1.0",
     "@types/node": "~22.13.1",
+    "babel-plugin-istanbul": "^7.0.0",
     "chromatic": "^11.27.0",
+    "istanbul-lib-instrument": "^6.0.3",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -59,7 +67,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "playwright": "^1.51.1",
+    "playwright-ng-schematics": "^2.0.2",
     "storybook": "^8.6.10",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "vite-plugin-istanbul": "^7.0.0"
   }
 }

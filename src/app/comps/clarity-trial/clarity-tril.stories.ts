@@ -51,7 +51,7 @@ export const FilledForm: Story = {
       canvas.getByTestId(
         'email'
       )
-    ).toHaveValue('email@beurre.com')
+    ).toHaveValue('email@provider.com')
 
     // 👇 Assert DOM structure
     // await expect(
